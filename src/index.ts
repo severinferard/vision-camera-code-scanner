@@ -283,11 +283,34 @@ export type Barcode = {
       };
 };
 
+export interface ScanFrame {
+  /**
+   * x coordinate of the top left-hand corner of the frame. Defaults to 0 if not specified
+   */
+  x?: number;
+  /**
+   * y coordinate of the top left-hand corner of the frame. Defaults to 0 if not specified
+   */
+  y?: number;
+  /**
+   * width of the frame. Defaults to the full available width if not specified
+   */
+  width?: number;
+  /**
+   * height of the frame. Defaults to the full available height if not specified
+   */
+  height?: number;
+}
+
 export interface CodeScannerOptions {
   /**
    * checkInverted: `Allows you to also scan white barcode with black backgrounds`
    */
   checkInverted?: boolean;
+  /**
+   * scanFrame: Allows you to restrict the scan to the specified frame
+   */
+  scanFrame?: ScanFrame;
 }
 
 /**
